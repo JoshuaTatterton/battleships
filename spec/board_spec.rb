@@ -22,4 +22,16 @@ describe Board do
     subject.place_ship(ship, 1, 1)
     expect{subject.place_ship(ship,1,1)}.to raise_error "Ship already on that spot!"
   end
+
+  it "should be able to attack ships" do
+  	expect(subject).to respond_to :fire
+  end
+
+  it "fireing should hit ship" do
+  	ship = spy :ship
+  	subject.place_ship(ship, 1,1)
+  	subject.fire(1,1)
+  	expect(ship).to have_received :hit
+  end
+
 end
