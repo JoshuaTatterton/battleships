@@ -1,7 +1,7 @@
 require "board"
 
 describe Board do
-  let(:ship){double :ship, set_location: [1,1]}
+  let(:ship){double :ship, set_location: [1,1], status: [[1,1],"s"]}
 
   it { is_expected.to respond_to :board }
 
@@ -40,7 +40,18 @@ describe Board do
       ship = spy :ship, status: [1,1]
       subject.place_ship(ship, 1,1)
       subject.fire(1,1)
-      expect(ship).to have_received :hit
+      expect(ship).to have_received :hit_ship
+    end
+
+    it "should respond to hit" do
+      expect(subject).to respond_to(:hit).with(2).argument
+    end
+
+    it "should affect the board" do
+      allow(ship).to receive(:hit_ship)
+      subject.place_ship(ship, 1,1)
+      subject.fire(1,1)
+      expect(subject.board[0][0]).to eq "h"
     end
   end
 end

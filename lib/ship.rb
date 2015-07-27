@@ -6,7 +6,7 @@ class Ship
     @status = [x,"s"]
   end
 
-  def hit
+  def hit_ship
   	status[1] = "h"
   end
   
