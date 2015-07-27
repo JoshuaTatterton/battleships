@@ -10,15 +10,26 @@ Ship class
 ----------------------------
 -We need the ships to initialize with a certain size.
 -We need this class to respond to getting shot
+-Ship needs to be able to change direction/rotate
+-Ship needs to know when it is destroyed
 
 ----------------------------
 Board class
 ----------------------------
 -We need the board to initialize with a certain size
--We need to place a ship within the board
+-We need to place a ship 
+-We need to place a ship within the board 
+-We need to place a ship within the board without overlapping other ships
 -we need to be able to attack the ships
 -we need a way to log and view all attacks made
+-we need to know when all ships are destroyed 
+
 -we need a way to check if a certain space has a boat inside it (this will be used privately in various other methods)
+
+----------------------------
+Other class
+----------------------------
+-we need to play with 2 people
 
 ----------------------------
 interactions
@@ -30,3 +41,6 @@ interactions
 <board> --log_attack--> <board>
 
 <ship> --create_ship--> <ship>
+<ship> --rotate--> <ship>
+
+<other> --multiplayer-> <board>
