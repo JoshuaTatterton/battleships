@@ -17,7 +17,7 @@ class Board
   end
 
   def fire(x,y)
-  	board[y-1][x-1] == "s" ? (ship_checker(x,y)).hit : 'miss'
+  	board[y-1][x-1] == "s" ? (ship_checker(x,y))[0].hit : 'miss'
   end
 
   def ship_checker(x,y)

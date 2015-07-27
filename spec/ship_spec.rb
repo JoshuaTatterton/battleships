@@ -14,9 +14,14 @@ describe Ship do
     expect(subject.status).to eq [[1,2], "s"]
   end
 
+  it "should respond to hit" do
+    expect(subject).to respond_to :hit
+  end
 
-
-
-
+  it "should get hit by hit" do
+    subject.set_location([1,1])
+    subject.hit
+    expect(subject.status).to eq [[1,1],"h"]
+  end
 
 end
